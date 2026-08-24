@@ -1,0 +1,24 @@
+package com.training.strings;
+
+import java.util.Scanner;
+
+public class LongestStringExample {
+	public static void main(String[] args) {
+		
+		Scanner scanner= new Scanner(System.in);
+		System.out.println(" enter the input:: ");
+		String userInput=scanner.nextLine();
+		
+		String[] strArray=userInput.toLowerCase().trim().split(" ");
+		
+		String maxLengthString="";
+		for(String word:strArray) {
+			if(word.length()>maxLengthString.length()) {
+				maxLengthString=word;
+			}
+		}
+		System.out.println(maxLengthString);
+	
+	}
+
+}
