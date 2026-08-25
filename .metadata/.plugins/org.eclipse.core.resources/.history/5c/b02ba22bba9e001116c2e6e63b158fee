@@ -1,0 +1,12 @@
+package com.shriti.basics;
+
+public class DataTypeOperations {
+
+	public static void main(String[] args) {
+		
+		String str="java";
+		String message="class room practice";
+		System.out.println(str+"\t "+message);
+		
+	}
+}

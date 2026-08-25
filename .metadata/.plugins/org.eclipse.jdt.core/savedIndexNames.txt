@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Backend Apps\eclipseApps\ai_javaDevelopment\.metadata\.plugins\org.eclipse.jdt.core
+2923618230.index
+1711679060.index
+1865797976.index

@@ -1,0 +1,38 @@
+package com.basics.quest1;
+
+public class Book {
+	
+	private String title;
+	private String author;
+	private double price;
+	private String category;
+	
+	public Book(String title, String author, double price, String category) {
+		this.title = title;
+		this.author = author;
+		this.price = price;
+		this.category = category;
+	}
+	
+	 public void getBookDetails() {
+		 System.out.println("Title of the Book:: "+title);
+		 System.out.println("Author name of the Book:: "+author);
+		 System.out.println("Price of the Book:: "+price);
+		 System.out.println("Category of the Book:: "+category);
+		
+	}
+	
+	public void checkBookType() {
+		
+		if(price>500) {
+			System.out.println("Premium books");
+		}else {
+			System.out.println("Standard books");
+
+		}
+		
+	}
+	
+	
+
+}

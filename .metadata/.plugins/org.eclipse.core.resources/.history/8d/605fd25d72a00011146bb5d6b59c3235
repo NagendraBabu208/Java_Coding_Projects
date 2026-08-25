@@ -1,0 +1,20 @@
+package com.basics.quest4;
+
+public class Training {
+	
+	public String[] showCourses() {
+		String[] coursesArray=
+			{"Core Java","PHP","Python","Spring","SpringBoot","JDBC","JavaScript"};
+		
+		return coursesArray;
+	}
+	
+	public void showTrainers(String...names) {
+		
+		for(String name:names) {
+			System.out.print(name+" ");
+			
+		}
+	}
+
+}

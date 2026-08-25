@@ -1,0 +1,32 @@
+package com.shriti.controlflow;
+
+public class SwitchDemo {
+	
+	public static void main(String[] args) {
+		
+		//calculator
+		//input two numbers and an operator(+,-,*,/)->perform the operation
+		int num1=10;
+		int num2=20;
+		String operator="-";
+		
+		switch (operator) {
+		case "+":
+			System.out.println("sum = "+(num1+num2));
+			break;
+		case "-":
+			System.out.println("difference = "+(num1-num2));
+			break;
+		case "*":
+			System.out.println("product = "+(num1*num2));
+			break;
+		case "/":
+			System.out.println("divison  = "+(num1/num2));
+			break;
+			
+		default:
+			System.out.println(" operator is not match");
+		}
+	}
+
+}

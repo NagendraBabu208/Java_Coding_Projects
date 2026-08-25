@@ -1,0 +1,29 @@
+package com.training.scan;
+
+import java.util.Scanner;
+
+public class TwoDim {
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("enter the no of rows:- ");
+		int noOfRows=scanner.nextInt();
+		System.out.println(" enter the no of columns :- ");
+		int noOfColumns=scanner.nextInt();
+
+		String[][] strArray= new String[noOfRows][noOfColumns];
+
+		for(int i=0;i<strArray.length;i++) {
+
+			int index=0;
+
+			for(int j=0;j<strArray[i].length;j++) {
+				System.out.println(" enter the string values:: ");
+				strArray[i][index]=scanner.nextLine();
+				index++;
+
+			}
+		}
+	}
+
+}

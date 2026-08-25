@@ -1,0 +1,25 @@
+package com.training.basics;
+
+// find second smallest element in the Array
+public class SmallSecondElementInArray {
+
+	public static void main(String[] args) {
+		int[] array= {12, 45, 7, 89, 23, 56};
+		
+		int firstSmallest=Integer.MAX_VALUE;
+		int secondSmallest= Integer.MAX_VALUE;
+		
+		for(int i=0;i<array.length;i++) {
+			
+			if(array[i]<firstSmallest) {
+				secondSmallest=firstSmallest;
+				firstSmallest=array[i];
+			}
+			else if(array[i]<firstSmallest && array[i]!=secondSmallest) {
+				secondSmallest=array[i];
+				
+			}
+		}
+		System.out.println(secondSmallest);
+	}
+}
