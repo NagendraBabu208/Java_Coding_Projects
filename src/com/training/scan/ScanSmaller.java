@@ -27,6 +27,10 @@ public class ScanSmaller {
 		}
 		
 		System.out.println("Smallest element :- "+smallest);
+		
+		if(scanner!=null) {
+			scanner.close();
+		}
 	}
 
 }

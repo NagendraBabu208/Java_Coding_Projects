@@ -1,6 +1,6 @@
 package com.training.strings;
 
-import java.util.HashMap;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -35,6 +35,10 @@ public class MaximumOccurenceOfCharacter {
 				System.out.println("character:- "+entry.getKey());
 			}
 			
+		}
+		
+		if(scanner!=null) {
+			scanner.close();
 		}
 	}
 

@@ -31,7 +31,9 @@ public class PalindromeString {
 			System.out.println(" Given String is not a palindrome!!! ");
 		}
 		
-		
+		if(scanner!=null) {
+			scanner.close();
+		}
 	}
 
 }

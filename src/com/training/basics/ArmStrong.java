@@ -5,6 +5,7 @@ package com.training.basics;
 // find the armstrong number
 public class ArmStrong {
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		int number=153;

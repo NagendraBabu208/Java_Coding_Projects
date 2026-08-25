@@ -27,6 +27,10 @@ public class Login {
 		else {
 			System.out.println("\"Invalid username\" ");
 		}
+		
+		if(scanner!=null) {
+			scanner.close();
+		}
 	}
 
 }

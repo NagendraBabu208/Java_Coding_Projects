@@ -18,6 +18,10 @@ public class ScanGreater {
 				((number1>number3)?number1:number3):((number2>number3)?number2:number3);
 
 		System.out.println(" largestNumber "+largeNumber);
+		
+		if(scanner!=null) {
+			scanner.close();
+		}
 	}
 
 }

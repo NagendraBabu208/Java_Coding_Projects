@@ -18,6 +18,10 @@ public class LongestStringExample {
 			}
 		}
 		System.out.println(maxLengthString);
+		
+		if(scanner!=null) {
+			scanner.close();
+		}
 	
 	}
 

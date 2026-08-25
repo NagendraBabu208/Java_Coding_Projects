@@ -34,6 +34,10 @@ public class LongestString {
 			}
 		}
 		
+		if(scanner!=null) {
+			scanner.close();
+		}
+		
 				
 	}
 

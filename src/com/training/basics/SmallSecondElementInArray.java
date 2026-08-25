@@ -1,6 +1,6 @@
 package com.training.basics;
 
-import java.util.Arrays;
+
 
 // find second smallest element in the Array
 public class SmallSecondElementInArray {

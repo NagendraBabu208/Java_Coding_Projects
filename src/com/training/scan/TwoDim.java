@@ -38,6 +38,10 @@ public class TwoDim {
 			}
 			System.out.println(" ");
 		}
+		
+		if(scanner!=null) {
+			scanner.close();
+		}
 	}
 
 }
