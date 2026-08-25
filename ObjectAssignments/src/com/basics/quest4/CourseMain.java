@@ -6,16 +6,6 @@ public class CourseMain {
 	
 	public static void main(String[] args) {
 		Scanner scanner= new Scanner(System.in);
-		System.out.println("enter number of trainers ");
-		int trainersCount=scanner.nextInt();
-		
-		String[] trainerNamesArray=new String[trainersCount];
-		scanner.nextLine();
-		for(int i=0;i<trainerNamesArray.length;i++) {
-			System.out.println(" enter the trainer name:: ");
-			trainerNamesArray[i]=scanner.nextLine();
-		}
-		
 		Training training=new Training();
 		String[] courses=training.showCourses();
 		
@@ -26,7 +16,12 @@ public class CourseMain {
 		}
 		
 		System.out.println("===========Avaliable Trainers=======================");
-		training.showTrainers(trainerNamesArray);
+		System.out.println("enter the trainer1 name::");
+		String trainerOneName=scanner.nextLine();
+		System.out.println("enter the trainer2 name::");
+		String trainerTwoName=scanner.nextLine();
+		System.out.println();
+		training.showTrainers(trainerOneName,trainerTwoName);
 		
 		if(scanner!=null) {
 			scanner.close();
