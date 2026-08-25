@@ -1,0 +1,42 @@
+package com.shriti.arrays;
+
+public class TwoDimArray {
+	
+	public static void main(String[] args) {
+		
+		int[][] numbers= new int[3][3];
+		
+		numbers[0][0]=6;
+		numbers[0][1]=8;
+		numbers[0][2]=5;
+		numbers[1][0]=7;
+		numbers[1][1]=10;
+		numbers[1][2]=4;
+		numbers[2][0]=1;
+		numbers[2][1]=9;
+		numbers[2][2]=20;
+		
+		//using for loop to iterate the 2D array
+		for(int[] oneDim:numbers) {
+			
+			for(int value:oneDim) {
+				System.out.print(value+" ");
+			}
+			System.out.println(" ");
+		}
+		
+		//using traditional for loop iterate 2D array
+		System.out.println("================================================");
+		
+		
+		for(int i=0;i<numbers.length;i++) {
+			
+			for(int j=0;j<numbers[i].length;j++) {
+				System.out.print(numbers[i][j]+" ");
+			}
+			System.out.println(" ");
+		}
+		
+	}
+
+}

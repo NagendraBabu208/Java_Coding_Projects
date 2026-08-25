@@ -1,0 +1,45 @@
+package com.training.strings;
+
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class MaximumOccurenceOfCharacter {
+	public static void main(String[] args) {
+		
+		Scanner scanner=new Scanner(System.in);
+		System.out.println(" enter the input");
+		String userInput=scanner.nextLine();
+		
+		Map<Character, Integer> map=new LinkedHashMap<Character, Integer>();
+		for(char character:userInput.toCharArray()) {
+			
+			if(map.containsKey(character)) {
+				map.put(character, map.get(character)+1);
+			}
+			else {
+				map.put(character, 1);
+			}
+		}
+		int maxCount=0;
+		for(int max:map.values()) {
+			if(max>maxCount) {
+				maxCount=max;
+			}
+			
+		}
+		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+			
+			if(entry.getValue()==maxCount) {
+				System.out.println("character:- "+entry.getKey());
+			}
+			
+		}
+		
+		if(scanner!=null) {
+			scanner.close();
+		}
+	}
+
+}
