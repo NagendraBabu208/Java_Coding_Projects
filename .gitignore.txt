@@ -1,0 +1,9 @@
+# Ignore Eclipse metadata
+.metadata/
+bin/
+.settings/
+.classpath
+.project
+
+# Ignore nested repo
+FirstProject/.git
