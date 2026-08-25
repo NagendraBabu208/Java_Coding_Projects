@@ -1,9 +1,0 @@
-package com.training.basics;
-
-// find second smallest element in the Array
-public class SmallSecondElementInArray {
-
-	public static void main(String[] args) {
-
-	}
-}
