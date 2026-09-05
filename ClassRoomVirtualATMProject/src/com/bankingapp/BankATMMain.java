@@ -11,7 +11,7 @@ public class BankATMMain {
 		boolean isBankATMAvailable=true;
 		CurrentAccount currentAccount= null;
 		while(isBankATMAvailable) {
-			System.out.println("Select Account Type - Saving/Current");
+			System.out.println("Select the Account Type:- \n 1)Saving Account(Saving) \n 2) Current Account(current)");
 			String accountType=scanner.nextLine();
 
 			if("SAVING".equalsIgnoreCase(accountType)) { 
@@ -34,7 +34,7 @@ public class BankATMMain {
 
 			boolean isATMWorking=true;
 			while(isATMWorking) {
-				System.out.println("Please select Operation to perform- Deposit/Withdraw/Balance/Exit ");
+				System.out.println("Please select the Operation to perform :-\n 1)Deposit \n 2)Withdraw \n 3)Balance \n 4)Exit ");
 				String operationType=scanner.nextLine();
 
 				switch(operationType.toUpperCase()) {
