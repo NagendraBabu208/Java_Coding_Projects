@@ -8,11 +8,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.Scanner;
 
-public class TableCreatByPrepareStatement {
-	
+public class DeleteUsingPreparedStatement {
+
 	public static void main(String[] args) {
-		
+
 		Properties properties=new Properties();
 		try {
 			properties.load(new FileReader("db.properties"));
@@ -20,53 +21,53 @@ public class TableCreatByPrepareStatement {
 			System.out.println(fileNotFoundException.getMessage());
 		} catch (IOException ioException) {
 			System.out.println(ioException.getMessage());
+
 		}
-		
+
 		String dbUrl=properties.getProperty("url");
 		String userName=properties.getProperty("userName");
 		String userPassword=properties.getProperty("userPassword");
-		String createTableSqlQuery =
-			    "CREATE TABLE Book (" +
-			    "bookId INT AUTO_INCREMENT PRIMARY KEY, " +
-			    "title VARCHAR(200) NOT NULL, " +
-			    "author VARCHAR(100) NOT NULL, " +
-			    "publisher VARCHAR(100), " +
-			    "price DECIMAL(10,2)" +   // removed trailing comma
-			    ")";
+		String sqlQuery="Delete from book where bookId=?";
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
-		
+		Scanner scanner=null;
+
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			
+
 			connection=DriverManager.getConnection(dbUrl, userName, userPassword);
+			preparedStatement=connection.prepareStatement(sqlQuery);
+			System.out.println("enter Book values:: ");
+			scanner=new Scanner(System.in);
+					
+			int bookId=scanner.nextInt();
 			
-		preparedStatement =connection.prepareStatement(createTableSqlQuery);
-		boolean value=preparedStatement.execute();
-		System.out.println("Table is created!!!. "+value);
-			
-			
-			
+			preparedStatement.setInt(1, bookId);
+
+			preparedStatement.execute();
+
 		} catch (ClassNotFoundException classNotFoundException) {
-			System.out.println(classNotFoundException.getMessage());
+			classNotFoundException.getMessage();
 		}catch (SQLException sqlException) {
 			System.out.println(sqlException.getMessage());
-		}finally {
 			
+		}finally {
+			if(scanner!=null) {
+				scanner.close();
+			}
 			try {
+
 				if(preparedStatement!=null) {
 					preparedStatement.close();
 				}
-				
+
 				if(connection!=null) {
 					connection.close();
 				}
 			}catch (SQLException sqlException2) {
-				System.out.println(sqlException2);
+				System.out.println(sqlException2.getMessage());
 			}
 		}
 	}
-	
-	
 
 }
