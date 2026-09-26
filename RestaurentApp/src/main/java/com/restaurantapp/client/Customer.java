@@ -1,7 +1,7 @@
 package com.restaurantapp.client;
 
 import java.time.LocalDateTime;
-
+import java.time.LocalTime;
 import java.util.List;
 
 import com.restaurantapp.exception.RestaurantNotFoundExcetion;
@@ -17,13 +17,13 @@ public class Customer {
 		IRestaurantService restaurantService=new RestaurantServiceImpl();
 
 
-		/*
-		 * restaurantService.addRestaurant(new
-		 * Restaurant(6,"Schezwan Fried Rice",950,Cuisine.CH.getCuisineType(),
-		 * "VEG",5,"Beijing",LocalTime.of(9, 0),LocalTime.of(23, 0)));
-		 */
+		
+		  restaurantService.addRestaurant(new
+		  Restaurant(6,"Schezwan Fried Rice",950,Cuisine.CH.getCuisineType(),
+		  "VEG",5,"Beijing",LocalTime.of(9, 0),LocalTime.of(23, 0)));
+		 
 		System.out.println("==================================================");
-		/* restaurantService.updateRestaurant(16, 1000); */
+		 restaurantService.updateRestaurant(16, 1000); 
 		System.out.println("===================================================");
 		restaurantService.getAllRestaurants().forEach(System.out::println);
 		System.out.println("===================================================");
