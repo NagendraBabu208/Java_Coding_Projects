@@ -43,12 +43,9 @@ public class RestaurantServiceImpl implements IRestaurantService {
 	}
 
 	@Override
-	public int deleteRestaurant(int restaurantId) { 
-		int deletedRestaurantNumber=restaurantDAO.deleteRestaurant(restaurantId);
-		if(deletedRestaurantNumber==0) {
-			throw new RestaurantNotFoundExcetion("Restaurant is not found with restaurantId!!!.");
-		}
-		return deletedRestaurantNumber;
+	public void deleteRestaurant(int restaurantId) { 
+		restaurantDAO.deleteRestaurant(restaurantId);
+	
 		
 	}
 
@@ -74,12 +71,19 @@ public class RestaurantServiceImpl implements IRestaurantService {
 	@Override
 	public List<Restaurant> getByCuisineLesserCost(Cuisine cuisine, double cost) {
 		List<Restaurant> listOfRestaurants=restaurantDAO.findByCuisineLesserCost(cuisine, cost);
-	
-		if(listOfRestaurants.isEmpty()) {
+		
+        if(listOfRestaurants.isEmpty()) {
 			throw new RestaurantNotFoundExcetion("Restaurants are not available!!!");
 		}
+        
+        List<Restaurant> listOfRestaurantsSortedByName =listOfRestaurants.stream()
+        .sorted(Comparator.comparing(Restaurant::getRestaurantName))
+        .map(restaurant->{
+        	restaurant.setRestaurantName(restaurant.getRestaurantName().toUpperCase());
+        	return restaurant;
+        }).collect(Collectors.toList());
 		
-		return listOfRestaurants;
+		return listOfRestaurantsSortedByName;
 	}
 
 	@Override
@@ -90,23 +94,27 @@ public class RestaurantServiceImpl implements IRestaurantService {
 			throw new RestaurantNotFoundExcetion("Restaurants are not available!!!");	
 		}
 		
-		return listOfRestaurants;
+		List<Restaurant> listOfRestaurantsSortedByName=listOfRestaurants.stream()
+		.sorted(Comparator.comparing(Restaurant::getRestaurantName))
+		.collect(Collectors.toList());
+		
+		return listOfRestaurantsSortedByName;
 	}
 
 	@Override
 	public List<Restaurant> getByTypeLesserCost(String restaurantType, double cost) {
-		String type=null;
-		if(RestaurantType.VEG.name().equals(restaurantType)) {
-			type=restaurantType;
-		}
-		if(RestaurantType.NONVEG.name().equals(restaurantType)) {
-			type=restaurantType;
-		}
-		List<Restaurant> listOfRestaurants=restaurantDAO.findByTypeLesserCost(type, cost);
+		
+		List<Restaurant> listOfRestaurants=restaurantDAO.findByTypeLesserCost(restaurantType, cost);
 		if(listOfRestaurants.isEmpty()) {
 			throw new RestaurantNotFoundExcetion("Restaurants are not available!!!");
-		}
-		return listOfRestaurants;
+			
+			}
+		
+		List<Restaurant> listOfRestaurantsSortedByName=listOfRestaurants.stream()
+				.sorted(Comparator.comparing(Restaurant::getRestaurantName))
+				.collect(Collectors.toList());
+		
+		return listOfRestaurantsSortedByName;
 	}
 
 	@Override
@@ -117,26 +125,27 @@ public class RestaurantServiceImpl implements IRestaurantService {
 		   throw new RestaurantNotFoundExcetion("Restaurants are not available!!!");  
 	   }
 	   
-		return listOfRestaurants;
+	   List<Restaurant> listOfRestaurantsSortedByName=listOfRestaurants.stream()
+				.sorted(Comparator.comparing(Restaurant::getRestaurantName))
+				.collect(Collectors.toList());
+		
+		return listOfRestaurantsSortedByName;
 	}
 
 	@Override
 	public List<Restaurant> getByRatingsAndType(String restaurantType, int ratings) {
-		String type=null;
-		if(RestaurantType.VEG.name().equals(restaurantType)) {
-			type=restaurantType;
-		}
-		if(RestaurantType.NONVEG.name().equals(restaurantType)) {
-			type=restaurantType;
-		}
 		
-		List<Restaurant> listOfRestaurants=restaurantDAO.findByRatingsAndType(type, ratings);
+		List<Restaurant> listOfRestaurants=restaurantDAO.findByRatingsAndType(restaurantType, ratings);
 		
 		if(listOfRestaurants.isEmpty()) {
 			throw new RestaurantNotFoundExcetion("Restaurants are not available!!!");
 		}
 		
-		return listOfRestaurants;
+		List<Restaurant> listOfRestaurantsSortedByName=listOfRestaurants.stream()
+				.sorted(Comparator.comparing(Restaurant::getRestaurantName))
+				.collect(Collectors.toList());
+		
+		return listOfRestaurantsSortedByName;
 	}
 
 	@Override
@@ -145,7 +154,11 @@ public class RestaurantServiceImpl implements IRestaurantService {
 		if(listOfRestaurants.isEmpty()) {
 			throw new RestaurantNotFoundExcetion("Restaurants are not available!!!");
 		}
-		return listOfRestaurants;
+		List<Restaurant> listOfRestaurantsSortedByName=listOfRestaurants.stream()
+				.sorted(Comparator.comparing(Restaurant::getRestaurantName))
+				.collect(Collectors.toList());
+		
+		return listOfRestaurantsSortedByName;
 	}
 	
 

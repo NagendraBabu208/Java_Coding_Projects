@@ -14,7 +14,7 @@ public interface IRestaurantService {
 	void addRestaurant(Restaurant restaurant);
 	void updateRestaurant(int restaurantId,double cost);
 	  Restaurant getById(int restaurantId);
-	  int deleteRestaurant(int restaurantId);
+	  void deleteRestaurant(int restaurantId);
 	  List<Restaurant> getAllRestaurants();
 	  List<Restaurant> getByCuisineLesserCost(Cuisine cuisine,double cost);
 	  List<Restaurant> getByTypelesserCost(double cost);

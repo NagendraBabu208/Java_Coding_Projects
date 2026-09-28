@@ -14,7 +14,7 @@ public interface IRestaurantDAO {
 	void addRestaurant(Restaurant restaurant);
 	void updateRestaurant(int restaurantId,double cost);
 	  Restaurant findById(int restaurantId);
-	  int deleteRestaurant(int restaurantId);
+	  void deleteRestaurant(int restaurantId);
 	  List<Restaurant> findAllRestaurants();
 	  List<Restaurant> findByTypelesserCost(double cost);
 	  List<Restaurant> findByCuisineLesserCost(Cuisine cuisine,double cost);
